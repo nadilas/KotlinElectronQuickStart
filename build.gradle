@@ -2,7 +2,7 @@ group 'com.cmexc'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.50'
+    ext.kotlin_version = '1.1.51'
     repositories {
         mavenCentral()
     }
@@ -21,10 +21,13 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 
-compileKotlin2Js.kotlinOptions.outputFile = "${projectDir}/web/app.js"
-compileKotlin2Js.kotlinOptions.suppressWarnings = true
-compileKotlin2Js.kotlinOptions.verbose = true
-compileKotlin2Js.kotlinOptions.sourceMap = true
+compileKotlin2Js {
+    kotlinOptions.outputFile = "${projectDir}/web/example-app.js"
+    kotlinOptions.suppressWarnings = true
+    kotlinOptions.moduleKind = "commonjs"
+    kotlinOptions.verbose = true
+    kotlinOptions.sourceMap = true
+}
 
 task assembleWeb(type: Sync) {
     configurations.compile.each { File file ->
@@ -44,4 +47,3 @@ task assembleWeb(type: Sync) {
 }
 
 assemble.dependsOn assembleWeb
-assemble.dependsOn compileKotlin2Js
