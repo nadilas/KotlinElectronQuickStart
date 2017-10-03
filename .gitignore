@@ -1,3 +1,6 @@
 .idea
 out
 node_modules
+web
+.gradle
+build

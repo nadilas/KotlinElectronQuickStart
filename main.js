@@ -3,5 +3,7 @@
  */
 
 global.APP_PATH = __dirname;
-global.kotlin = require("./jslib/kotlin");
-require("./out/production/KotlinElectronQuickStart/KotlinElectronQuickStart");
+// load kotlin runtime
+global.kotlin = require("./web/kotlin");
+// load application
+require('./web/output')
