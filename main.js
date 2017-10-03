@@ -6,4 +6,4 @@ global.APP_PATH = __dirname;
 // load kotlin runtime
 global.kotlin = require("./web/kotlin");
 // load application
-require('./web/output')
+require('./web/app')
